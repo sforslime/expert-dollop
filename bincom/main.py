@@ -62,6 +62,43 @@ print("CREATE TABLE colors (color VARCHAR(20), frequency INT);")
 for color, freq in color_count.items():
     print(f"INSERT INTO colors VALUES ('{color}', {freq});")
 
+# 7. write a recursive searching algorithm to search for a number entered by user in a list of numbers.
+def recursive_search(numbers, target, index=0):
+    if index >= len(numbers):
+        return -1
+    if numbers[index] == target:
+        return index
+    return recursive_search(numbers, target, index + 1)
+
+numbers = [5, 12, 7, 23, 45, 8, 19, 34]
+user_number = int(input("\n7. Enter a number to search: "))
+result = recursive_search(numbers, user_number)
+if result != -1:
+    print(f"   Found at position {result}")
+else:
+    print(f"   Not found in list")
+
+# 8. Write a program that generates random 4 digits number of 0s and 1s and convert the generated number to base 10.
+from random import randint
+
+binary = ''.join([str(randint(0, 1)) for i in range(4)])
+decimal = int(binary, 2)
+print(f"\n8. Random binary: {binary}")
+print(f"   Base 10: {decimal}")
+
+# 9. Write a program to sum the first 50 fibonacci sequence.
+def fibonacci_sum(n):
+    a, b = 0, 1
+    total = 0
+    for i in range(n):
+        total += a
+        a, b = b, a + b
+    return total
+
+fib_sum = fibonacci_sum(50)
+print(f"\n9. Sum of first 50 Fibonacci numbers: {fib_sum}")
+
+
 
 
 
